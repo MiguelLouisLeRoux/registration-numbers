@@ -50,39 +50,50 @@ h1 {
     padding: 5%;
 }
 
-.input-sect {
+/* .input-sect {
     text-align: center;
-}
+} */
 
 .input-sect h2 {
     font-size: 0.9rem;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.input-sect .error-message {
+.input {
+    outline-color: darkorange;
+}
+
+.textarea {
+    position: relative;
+}
+
+.error-message {
+    display: block;
+    /* position: absolute; */
+    left: 0;
     height: 1rem;
     font-size: 0.8rem;
     font-family: sans-serif;
     color: crimson;
 }
 
-.sect {
+/* .sect {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 3%;
-}
+} */
 
 .select {
     margin-top: 10%;
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 2%; 
-    text-align: center; 
+    grid-column-gap: 2%;  */
+    text-align: center;
 }
 
-/* .butt {
-    text-align: center;
-} */
+.butt {
+    margin: 3%;
+}
 
 
 .add {
@@ -96,16 +107,47 @@ h1 {
     outline: none;
 }
 
+.empty {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.clear {
+    padding: 0.3rem;
+    width: 5.5rem;
+    height: 1.8rem;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
 .add:hover {
     background-color: darkcyan;
+    /* border: solid 0.2rem darkcyan; */
+    box-shadow: 0 0 0.1rem 0.1rem darkcyan;
     transition: 250ms;
+
+}
+
+.clear:hover {
+    background-color: darkcyan;
+    /* border: solid 0.2rem darkcyan; */
+    box-shadow: 0 0 0.1rem 0.1rem darkcyan;
+    transition: 250ms;
+
 }
 
 .dropdown {
     position: relative;
+    display: inline-block;
+    max-width: fit-content;
     
 }
+
 .dropbtn {
+    
     padding: 0.3rem;
     width: 5.5rem;
     height: 1.8rem;
@@ -118,15 +160,13 @@ h1 {
 
 
 .dropdown-content {
+    position:absolute;
     display: none;
     background-color: teal;
     box-shadow: 0px 10px 18px 0px rgba(0,0,0,0.2);
     z-index: 1;
     border-radius: 0.5rem;
     width: fit-content;
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
     cursor: pointer;
 }
 
@@ -143,26 +183,33 @@ h1 {
     cursor: pointer;
 }
 
+
 .dropdown:hover .dropdown-content {
     display: block;
     transition: 500ms;
+    z-index: 1;
 }
+
 
 .dropdown:hover .dropbtn {
     background-color:darkcyan;
     transition: 250ms;
 }
 
+.dropbtn:hover {
+    background-color:darkcyan;
+    transition: 250ms;
+}
+
 .list-sect {
     margin-top: 10%;
-    text-align: center;
+    text-align: right;
     padding: 2%;
 }
 
 
 .number-plate {
-    margin-left: auto;
-    margin-right: auto;
+    display: block;
     width: fit-content;
     height: fit-content;
     border: solid 0.2rem black;
@@ -171,8 +218,65 @@ h1 {
     background-color: goldenrod;
     box-shadow: 0 0 0.3rem 0.3rem rgba(0,0,0,0.2);
     color: black;
-    text-align: center;
-    vertical-align: middle;
+    text-align: right;
+}
+
+@media only screen and (min-width:465px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .input-sect h2 {
+        font-size: 1.2rem;
+    }
+
+    .input-sect .error-message {
+        font-size: 0.8rem;
+        height: 0.8rem;
+    }
+
+    .input-sect .input {
+        height: 1.3rem;
+    }
+    
+    .input {
+        font-size: 1rem;
+        border: none;
+        outline: none;
+        margin-right: 3%;
+    }
+
+    .dropdown-content a {
+        font-size: 1.2rem;
+    }
+
+    .error-message {
+        font-size: 0.8rem;
+    }
+
+    .dropbtn {
+        font-size: 1rem;
+        width: 8rem;
+    }
+
+    .dropdown-content {
+        font-size: 1rem;
+    }
+
+    .add {
+        font-size: 1rem;
+        width: 8rem;
+    }
+
+    .clear {
+        font-size: 1rem;
+        width: 8rem;
+    }
+
+    .number-plate {
+        font-size: 1.3rem;
+    }
+
 }
 
 @media only screen and (min-width:768px) {
@@ -201,16 +305,26 @@ h1 {
 
     .dropbtn {
         font-size: 1rem;
-        width: 8rem;
+        width: 9rem;
+        height: 2.3rem;
     }
 
     .dropdown-content {
         font-size: 1rem;
+        width: 9rem;
+        
     }
 
     .add {
-        font-size: 1rem;
-        width: 8rem;
+        font-size: 1.3rem;
+        width: 9rem;
+        height: 2.3rem;
+    }
+
+    .clear {
+        font-size: 1.3rem;
+        width: 9rem;
+        height: 2.3rem;
     }
 
     .number-plate {
@@ -263,6 +377,13 @@ h1 {
         padding: 3%;
         height: 2rem;
     }
+
+    .clear {
+        font-size: 1.3rem;
+        width: 9rem;
+        padding: 3%;
+        height: 2rem;
+    }
         
 }
 
@@ -305,6 +426,13 @@ h1 {
     }
 
     .add {
+        font-size: 1.3rem;
+        width: 9rem;
+        padding: 3%;
+        height: 2rem;
+    }
+
+    .clear {
         font-size: 1.3rem;
         width: 9rem;
         padding: 3%;
