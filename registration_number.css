@@ -83,6 +83,20 @@ h1 {
     text-align: center;
 }
 
+.radSect {
+    margin-top: 5%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ca {
+    margin-right: 2%;
+}
+
+.ca:hover {
+    cursor: pointer;
+}
+
 .butt {
     margin: 3%;
 }
@@ -131,81 +145,23 @@ h1 {
 
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-    max-width: fit-content;
-    
-}
-
-.dropbtn {
-    
-    padding: 0.3rem;
-    width: 5.5rem;
-    height: 1.8rem;
-    text-decoration: none;
-    border-radius: 0.5rem;
-    outline: none;
-    border: none;
-
-}
-
-
-.dropdown-content {
-    position:absolute;
-    display: none;
-    background-color: teal;
-    font-family: Arial, Helvetica, sans-serif;
-    box-shadow: 0px 10px 18px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 0.5rem;
-    width: fit-content;
-    cursor: pointer;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 0.5rem;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-    transition: 250ms;
-    cursor: pointer;
-}
-
-
-.dropdown:hover .dropdown-content {
-    display: block;
-    transition: 500ms;
-    z-index: 1;
-}
-
-.dropbtn:hover {
-    background-color:darkcyan;
-    color: whitesmoke;
-    /* transition: 250ms; */
-}
-
 .list-sect {
     margin-top: 10%;
-    text-align: right;
+    text-align: center;
     padding: 2%;
 }
 
 
 .number-plate {
-    display: block;
+    display: inline-block;
     width: 7rem;
+    margin: 1%;
     border: solid 0.2rem black;
     padding: 1% 2% 1% 2%;
     border-radius: 0.5rem;
     background-color: goldenrod;
     box-shadow: 0 0 0.3rem 0.3rem rgba(0,0,0,0.2);
     color: black;
-    text-align: center;
 }
 
 @media only screen and (min-width:415px) {
@@ -235,9 +191,9 @@ h1 {
         margin-left: auto;
     }
 
-    /* .input-area {
+    .input-area {
         display: inline-block;
-    } */
+    }
 
     .input-sect h2 {
         font-size: 1.2rem;
@@ -252,9 +208,6 @@ h1 {
         display: inline-block;
     }
 
-    .input-sect .input {
-        height: 1.3rem;
-    }
     
     .input {
         font-size: 1rem;
@@ -263,9 +216,7 @@ h1 {
         margin-right: 3%;
     }
 
-    .dropdown-content a {
-        font-size: 1.2rem;
-    }
+    
 
     .error-message {
         font-size: 0.8rem;
@@ -285,7 +236,7 @@ h1 {
 
     .dropdown-content {
         font-size: 1rem;
-    }
+    } */
 
     .add {
         font-size: 1rem;
@@ -308,6 +259,9 @@ h1 {
 
 @media only screen and (min-width:618px) {
     
+    .textarea {
+        display: inline-block;
+    }
 
     .number-plate {
         font-size: 1.3rem;
@@ -337,9 +291,6 @@ h1 {
         height: 1rem;
     }
 
-    .input-sect .input {
-        height: 1.8rem;
-    }
     
     .input {
         font-size: 1rem;
@@ -352,22 +303,8 @@ h1 {
         display: inline-block;
     }
 
-    .dropdown {
-        margin-top: 2%;
-        display: inline-block;
-    }
-
-    .dropbtn {
-        font-size: 1rem;
-        width: 9rem;
-        height: 2.3rem;
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        font-size: 1rem;
-        width: 9rem;
-        text-align: center;
+    .radSect {
+        font-size: 1.3rem;
     }
 
     .add {
@@ -406,11 +343,6 @@ h1 {
         margin-right: 1%;
     }
 
-    .dropdown {
-        margin-top: 1%;
-        display: inline-block;
-    }
-
     .list-sect {
         margin-top: 3%;
     }
@@ -423,28 +355,11 @@ h1 {
         font-size: 1rem;
         height: 1rem;
     }
-
-    .input-sect .input {
-        height: 1.8rem;
-    }
     
     .input {
         font-size: 1rem;
         border: none;
         outline: none;
-    }
-
-    .dropbtn {
-        font-size: 1rem;
-        width: 9rem;
-        height: 2.3rem;
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        font-size: 1rem;
-        width: 9rem;
-        text-align: center;
     }
 
     .select {
@@ -504,13 +419,9 @@ h1 {
         font-size: 1rem;
         height: 1rem;
     }
-
-    .input-sect .input {
-        height: 1.8rem;
-    }
     
     .input {
-        font-size: 1rem;
+        font-size: 1.5rem;
         
     }
 
@@ -520,20 +431,12 @@ h1 {
         margin-right: 1%;
     }
 
-    .dropdown {
-        margin-top: 1%;
+    .textarea {
+        display: inline-block;
     }
 
-    .dropbtn {
-        font-size: 1rem;
-        width: 9rem;
-        height: 2.3rem;
-    }
-
-    .dropdown-content {
-        font-size: 1rem;
-        width: 9rem;
-        text-align: center;
+    .radSect {
+        font-size: 1.5rem;
     }
 
     .add {
@@ -550,8 +453,9 @@ h1 {
 
     .number-plate {
         font-size: 1.3rem;
-        width: 10rem;
+        width: 11rem;
     }
 
 }
+
 
