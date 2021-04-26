@@ -17,7 +17,7 @@ function regNumber() {
     var newText = document.createTextNode(regFact.values().theRegNum);
     newDiv.appendChild(newText);
     newDiv.classList.add("number-plate");
-    // document.body.appendChild(newDiv);
+    document.body.appendChild(newDiv);
 }
 
 addBtn.addEventListener('click', regNumber);
