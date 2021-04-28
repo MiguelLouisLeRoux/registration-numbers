@@ -43,47 +43,49 @@ function theDisplay() {
     //     var itt = regFact.values().theArr[i];   
     // }
     
-    var newText = document.createTextNode(itt);
+    // var newText = document.createTextNode(itt);
     
     if (radio) {
         
         regFact.getRegNum(input.value);
         regFact.testRegNum();
     
-        // console.log(regFact.values().theRegNum);
-    //     if (radio.value === "capetown") {
-    //         if (itt.startsWith("CA")) {
-    //             var newDiv = document.createElement("div");
-    //             newDiv.appendChild(newText);
-    //             newDiv.classList.add("number-plate");
-    //             theList.appendChild(newDiv);
-    //         }
+        if (radio.value === "capetown") {
 
-    //     } else if (radio.value === "stellenbosch") {
-    //         if (itt.startsWith("CL")) {
-    //             var newDiv = document.createElement("div");
-    //             newDiv.appendChild(newText);
-    //             newDiv.classList.add("number-plate");
-    //             theList.appendChild(newDiv);
-    //         }
-    //     } else if (radio.value === "paarl") {
-    //         if (itt.startsWith("CJ")) {
-    //             var newDiv = document.createElement("div");
-    //             newDiv.appendChild(newText);
-    //             newDiv.classList.add("number-plate");
-    //             theList.appendChild(newDiv);
-    //         }
-    //     } else if (radio.value === "bellville") {
-    //         if (itt.startsWith("CY")) {
-    //             var newDiv = document.createElement("div");
-    //             newDiv.appendChild(newText);
-    //             newDiv.classList.add("number-plate");
-    //             theList.appendChild(newDiv);
-    //         }
-    //     }
-    // }
+
+
+            // if (itt.startsWith("CA")) {
+            //     var newDiv = document.createElement("div");
+            //     newDiv.appendChild(newText);
+            //     newDiv.classList.add("number-plate");
+            //     theList.appendChild(newDiv);
+            // }
+
+        // } else if (radio.value === "stellenbosch") {
+        //     if (itt.startsWith("CL")) {
+        //         var newDiv = document.createElement("div");
+        //         newDiv.appendChild(newText);
+        //         newDiv.classList.add("number-plate");
+        //         theList.appendChild(newDiv);
+        //     }
+        // } else if (radio.value === "paarl") {
+        //     if (itt.startsWith("CJ")) {
+        //         var newDiv = document.createElement("div");
+        //         newDiv.appendChild(newText);
+        //         newDiv.classList.add("number-plate");
+        //         theList.appendChild(newDiv);
+        //     }
+        // } else if (radio.value === "bellville") {
+        //     if (itt.startsWith("CY")) {
+        //         var newDiv = document.createElement("div");
+        //         newDiv.appendChild(newText);
+        //         newDiv.classList.add("number-plate");
+        //         theList.appendChild(newDiv);
+        //     }
+        }
     }
-    console.log(regFact.values().theArr);
+    
+   
 }
 
 display.addEventListener('click', theDisplay);
@@ -91,7 +93,7 @@ display.addEventListener('click', theDisplay);
 
 function clearReg() {
     regFact.clear();
-
+    location.reload();
     
 }
 
