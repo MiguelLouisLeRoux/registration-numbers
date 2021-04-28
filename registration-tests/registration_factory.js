@@ -1,7 +1,7 @@
 function regFactFunc() {
     //Error message variables
     var noRegNum = "Oops, no Registration number entered.";
-    var secRegNum = "Registration number has been inserted";
+    var secRegNum = "Registration number has already been inserted";
     var error = "";
 
     //Registration number variable
@@ -38,8 +38,28 @@ function regFactFunc() {
         }
     }
 
-    function filtering() {
-        
+    function filtering(radVal) {
+        for (var i = 0; i < arr.length; i++) {
+            var itt = arr[i];
+
+            if (radVal === "capetown") {
+                if (itt.startsWith("CA")) {
+                    
+                }
+            } else if (radVal === "stellenbosch") {
+                if (itt.startsWith("CL")) {
+                    
+                }
+            } else if (radVal === "bellville") {
+                if (itt.startsWith("CY")) {
+                    
+                }
+            } else if (radVal === "paarl") {
+                if (itt.startsWith("CJ")) {
+                    
+                }
+            }
+        }
     }
 
     function values() {
@@ -47,6 +67,7 @@ function regFactFunc() {
             theError : error,
             theRegNum : regNum,
             theArr : arr,
+            theObj : obj,
         }
     }
 

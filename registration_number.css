@@ -406,11 +406,9 @@ h1 {
 
 @media only screen and (min-width:1096px) {
 
-    
-    
     .number-plate {
         font-size: 1.3rem;
-        width: 10rem;
+        width: 11rem;
     }
 }
 
@@ -468,7 +466,7 @@ h1 {
 
     .number-plate {
         font-size: 1.3rem;
-        width: 11rem;
+        width: 12rem;
     }
 
 }

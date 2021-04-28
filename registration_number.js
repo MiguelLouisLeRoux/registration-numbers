@@ -12,8 +12,8 @@ var regFact = regFactFunc();
 function regNumber() {
 
     regFact.getRegNum(input.value);
-    console.log(regFact.values().theRegNum);
-    console.log(regFact.values().theRegNum.length);
+    // console.log(regFact.values().theRegNum);
+    // console.log(regFact.values().theRegNum.length);
     regFact.testRegNum();
     
     if (regFact.values().theError === "") {
@@ -31,57 +31,65 @@ function regNumber() {
     }
 
     input.value = "";
-    console.log(regFact.values().theArr);
+    // console.log(regFact.values().theArr);
+    localStorage["list"] = JSON.stringify(regFact.values().theArr);
+    localStorage["obj"] = JSON.stringify(regFact.values().theObj);
 }
 
 addBtn.addEventListener('click', regNumber);
 
+if (localStorage["list"] && localStorage["obj"]) {
+    regFact.values().theArr = JSON.parse(localStorage["list"]);
+    regFact.values().theObj = JSON.parse(localStorage["obj"]);
+}
 
 function theDisplay() {
     var radio = document.querySelector("input[name='town']:checked");
-    // for (var i = 0; i < regFact.values().theArr.length; i++) {
-    //     var itt = regFact.values().theArr[i];   
-    // }
+
+    var newList = JSON.parse(localStorage["list"]);
+    
+
     
     // var newText = document.createTextNode(itt);
     
     if (radio) {
-        
-        regFact.getRegNum(input.value);
-        regFact.testRegNum();
-    
-        if (radio.value === "capetown") {
-
-
-
-            // if (itt.startsWith("CA")) {
-            //     var newDiv = document.createElement("div");
-            //     newDiv.appendChild(newText);
-            //     newDiv.classList.add("number-plate");
-            //     theList.appendChild(newDiv);
-            // }
-
-        // } else if (radio.value === "stellenbosch") {
-        //     if (itt.startsWith("CL")) {
-        //         var newDiv = document.createElement("div");
-        //         newDiv.appendChild(newText);
-        //         newDiv.classList.add("number-plate");
-        //         theList.appendChild(newDiv);
-        //     }
-        // } else if (radio.value === "paarl") {
-        //     if (itt.startsWith("CJ")) {
-        //         var newDiv = document.createElement("div");
-        //         newDiv.appendChild(newText);
-        //         newDiv.classList.add("number-plate");
-        //         theList.appendChild(newDiv);
-        //     }
-        // } else if (radio.value === "bellville") {
-        //     if (itt.startsWith("CY")) {
-        //         var newDiv = document.createElement("div");
-        //         newDiv.appendChild(newText);
-        //         newDiv.classList.add("number-plate");
-        //         theList.appendChild(newDiv);
-        //     }
+        for (var i = 0; i < newList.length; i++) {
+            var itt = newList[i];
+            console.log(itt);
+            if (radio.value === "capetown") {
+                if (itt.startsWith("CA")) {
+                    var newDiv = document.createElement("div");
+                    var newText = document.createTextNode(itt);
+                    newDiv.appendChild(newText);
+                    newDiv.classList.add("number-plate");
+                    theList.appendChild(newDiv);
+                    
+                }
+            } else if (radio.value === "stellenbosch") {
+                if (itt.startsWith("CL")) {
+                    var newDiv = document.createElement("div");
+                    var newText = document.createTextNode(itt);
+                    newDiv.appendChild(newText);
+                    newDiv.classList.add("number-plate");
+                    theList.appendChild(newDiv);
+                }
+            } else if (radio.value === "bellville") {
+                if (itt.startsWith("CY")) {
+                    var newDiv = document.createElement("div");
+                    var newText = document.createTextNode(itt);
+                    newDiv.appendChild(newText);
+                    newDiv.classList.add("number-plate");
+                    theList.appendChild(newDiv);
+                }
+            } else if (radio.value === "paarl") {
+                if (itt.startsWith("CJ")) {
+                    var newDiv = document.createElement("div");
+                    var newText = document.createTextNode(itt);
+                    newDiv.appendChild(newText);
+                    newDiv.classList.add("number-plate");
+                    theList.appendChild(newDiv);
+                }
+            }
         }
     }
     
