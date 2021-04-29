@@ -1,11 +1,13 @@
 function regFactFunc() {
     //Error message variables
     var noRegNum = "Oops, no Registration number entered.";
-    var secRegNum = "Registration number has already been inserted";
+    var secRegNum = "Registration number has already been inserted.";
     var error = "";
+    var noRad = "Oops, no town selected.";
 
     //Registration number variable
     var regNum = "";
+    
 
     //Regular expressions
     var reg1 = /([A-Z]){2}\s([0-9]){3}\s([0-9]){3}/g;
@@ -39,27 +41,27 @@ function regFactFunc() {
     }
 
     function filtering(radVal) {
-        for (var i = 0; i < arr.length; i++) {
-            var itt = arr[i];
+        
+        if (radVal === "capetown") {
+            var cp = arr.filter((cape) => cape.startsWith("CA"));
+            return cp;
+        } else if (radVal === "stellenbosch") {
+            var st = arr.filter((cape) => cape.startsWith("CL"));
+            return st;  
+        } else if (radVal === "bellville") {
+            var be = arr.filter((cape) => cape.startsWith("CY"));
+            return be;       
+        } else if (radVal === "paarl") {
+            var pa = arr.filter((cape) => cape.startsWith("CJ"));
+            return pa;      
+        } else if (radVal === "all") {
 
-            if (radVal === "capetown") {
-                if (itt.startsWith("CA")) {
-                    
-                }
-            } else if (radVal === "stellenbosch") {
-                if (itt.startsWith("CL")) {
-                    
-                }
-            } else if (radVal === "bellville") {
-                if (itt.startsWith("CY")) {
-                    
-                }
-            } else if (radVal === "paarl") {
-                if (itt.startsWith("CJ")) {
-                    
-                }
-            }
         }
+        
+    }
+
+    function noRadioBut() {
+        error = noRad;
     }
 
     function values() {
@@ -68,13 +70,20 @@ function regFactFunc() {
             theRegNum : regNum,
             theArr : arr,
             theObj : obj,
+            noRadio : noRad,
         }
+    }
+
+    function localReset(lArr, lObj) {
+        arr = lArr;
+        obj = lObj;
     }
 
     function clear() {
         regNum = "";
         error = "";
         arr = [];
+        obj = {};
         localStorage.clear();
     }
 
@@ -82,6 +91,8 @@ function regFactFunc() {
              testRegNum,
              filtering,
              values,
+             noRadioBut,
+             localReset,
              clear
     }
 }

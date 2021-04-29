@@ -9,19 +9,26 @@ let errormess = document.querySelector(".error-message");
 
 var regFact = regFactFunc();
 
+var theObj = {};
+var theArr = [];
+
 function regNumber() {
 
     regFact.getRegNum(input.value);
-    // console.log(regFact.values().theRegNum);
-    // console.log(regFact.values().theRegNum.length);
     regFact.testRegNum();
+
+    localStorage["theArr"] = JSON.stringify(regFact.values().theArr);
+    localStorage["theobj"] = JSON.stringify(regFact.values().theObj);
     
     if (regFact.values().theError === "") {
+
         var newDiv = document.createElement("div");
         var newText = document.createTextNode(regFact.values().theRegNum);
         newDiv.appendChild(newText);
         newDiv.classList.add("number-plate");
         theList.appendChild(newDiv);
+        
+        
     } else if (regFact.values().theRegNum === "") {
         errormess.innerHTML = regFact.values().theError;
         setTimeout(function(){
@@ -31,69 +38,39 @@ function regNumber() {
     }
 
     input.value = "";
-    // console.log(regFact.values().theArr);
-    localStorage["list"] = JSON.stringify(regFact.values().theArr);
-    localStorage["obj"] = JSON.stringify(regFact.values().theObj);
+
 }
 
 addBtn.addEventListener('click', regNumber);
 
-if (localStorage["list"] && localStorage["obj"]) {
-    regFact.values().theArr = JSON.parse(localStorage["list"]);
-    regFact.values().theObj = JSON.parse(localStorage["obj"]);
-}
 
 function theDisplay() {
     var radio = document.querySelector("input[name='town']:checked");
-
-    var newList = JSON.parse(localStorage["list"]);
     
-
-    
-    // var newText = document.createTextNode(itt);
-    
-    if (radio) {
-        for (var i = 0; i < newList.length; i++) {
-            var itt = newList[i];
-            console.log(itt);
-            if (radio.value === "capetown") {
-                if (itt.startsWith("CA")) {
-                    var newDiv = document.createElement("div");
-                    var newText = document.createTextNode(itt);
-                    newDiv.appendChild(newText);
-                    newDiv.classList.add("number-plate");
-                    theList.appendChild(newDiv);
-                    
-                }
-            } else if (radio.value === "stellenbosch") {
-                if (itt.startsWith("CL")) {
-                    var newDiv = document.createElement("div");
-                    var newText = document.createTextNode(itt);
-                    newDiv.appendChild(newText);
-                    newDiv.classList.add("number-plate");
-                    theList.appendChild(newDiv);
-                }
-            } else if (radio.value === "bellville") {
-                if (itt.startsWith("CY")) {
-                    var newDiv = document.createElement("div");
-                    var newText = document.createTextNode(itt);
-                    newDiv.appendChild(newText);
-                    newDiv.classList.add("number-plate");
-                    theList.appendChild(newDiv);
-                }
-            } else if (radio.value === "paarl") {
-                if (itt.startsWith("CJ")) {
-                    var newDiv = document.createElement("div");
-                    var newText = document.createTextNode(itt);
-                    newDiv.appendChild(newText);
-                    newDiv.classList.add("number-plate");
-                    theList.appendChild(newDiv);
-                }
-            }
+    if (radio) {         
+        while (theList.hasChildNodes()) {  
+            theList.removeChild(theList.firstChild);
         }
+
+        regFact.filtering(radio.value);
+        
+        for (var i = 0; i < regFact.filtering(radio.value).length; i++) {
+            var itt = regFact.filtering(radio.value)[i];
+        
+        var newDiv = document.createElement("div");
+        var newText = document.createTextNode(itt);
+        newDiv.appendChild(newText);
+        newDiv.classList.add("number-plate");
+        theList.appendChild(newDiv);
+        }
+        
+    } else if (!radio) {
+        errormess.innerHTML = regFact.values().noRadio;
+        setTimeout(function(){
+            errormess.innerHTML = "";
+        }, 1500);
     }
     
-   
 }
 
 display.addEventListener('click', theDisplay);
@@ -101,8 +78,28 @@ display.addEventListener('click', theDisplay);
 
 function clearReg() {
     regFact.clear();
-    location.reload();
+    while (theList.hasChildNodes()) {  
+        theList.removeChild(theList.firstChild);
+    }
     
 }
 
 clearBtn.addEventListener('click', clearReg);
+
+if (localStorage["theArr"] && localStorage["theobj"]) {
+
+    theObj = JSON.parse(localStorage["theobj"]);
+    theArr = JSON.parse(localStorage["theArr"]);
+    regFact.localReset(theArr, theObj);
+
+    for (var j = 0; j < theArr.length; j++) {
+        var itt1 = theArr[j];
+
+        var newDiv = document.createElement("div");
+        var newText = document.createTextNode(itt1);
+        newDiv.appendChild(newText);
+        newDiv.classList.add("number-plate");
+        theList.appendChild(newDiv);
+    }
+}
+
