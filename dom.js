@@ -1,5 +1,5 @@
 let addBtn = document.getElementById("theAdd");
-let clearBtn = document.querySelector(".clear");
+let clearBtn = document.getElementById("clear");
 let display = document.getElementById("display");
 let input = document.querySelector(".input");
 let output = document.querySelector(".number-plate");
@@ -148,4 +148,3 @@ if (localStorage["theArr"] && localStorage["theobj"]) {
     }
     
 }
-

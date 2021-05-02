@@ -4,53 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="registration_number.css">
+    <link rel="stylesheet" href="grid/simple-grid.css">
     <title>Registration Numbers</title>
 </head>
 <body>
-
-    <header>
-        <h1>Number Plate Displayer</h1>
-    </header>
-    <div class="body-sect">
-
-        <div class="input-sect">
-
-            <label class="input-area"><h2>Enter Registration Number: </h2> </label>
-            <span class="textarea"><label class="error-message"></label><input class="input" type="text" placeholder=" e.g. CA 885 322"></span>
-            <button class="addBtn" id="theAdd">Add</button>
-            
+    
+    
+    <header class="center">Registration Numbers</header>
+    
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="center" id="format">Acceptable registration number formats are:<br>CA-123-456<br>CA 123 456<br>CA 123456</div>   
         </div>
-
-        <div class="radSect">
-            <label class="ca"><input class="radioInput" name="town" type="radio" value="capetown"> Cape Town</label>
-            <label class="ca"><input class="radioInput" name="town" type="radio" value="stellenbosch"> Stellenbosch</label>
-            <label class="ca"><input class="radioInput" name="town" type="radio" value="paarl"> Paarl</label>
-            <label class="ca"><input class="radioInput" name="town" type="radio" value="bellville"> Bellville</label>
-            <label class="ca"><input class="radioInput" name="town" type="radio" value="all"> All</label>
-        </div>
-
-        <div class="sect">
-
-            <div class="select">
-                
-                <div class="butt">
-                    <button class="add" id="display">Display</button>
-                    <span class="empty"></span>
-                    <button class="clear">Clear</button>
+       
+        <div class="row">
+            <div class="center">
+                <label class="error-message"></label><br>
+                <input class="input" type="text" placeholder=" Enter here">
+                <button class="addBtn" id="theAdd">Add</button>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="center" id="border-top"></div>
+                <div class="center">
+                    <label class="ca"><input class="radioInput" name="town" type="radio" value="capetown">Cape Town</label>
+                    <label class="ca"><input class="radioInput" name="town" type="radio" value="stellenbosch"> Stellenbosch</label>
+                    <label class="ca"><input class="radioInput" name="town" type="radio" value="paarl"> Paarl</label>
+                    <label class="ca"><input class="radioInput" name="town" type="radio" value="bellville"> Bellville</label>
+                    <label class="ca"><input class="radioInput" name="town" type="radio" value="all"> All</label>
                 </div>
             </div>
-
-
-            <div class="list-sect">
-                
+            <br>
+            <div class="row">
+                <div class="butt">
+                    <div class="center">
+                        <button class="add" id="display">Display</button>
+                        <span class="empty"></span>
+                        <button class="add" id="clear">Clear</button>
+                    </div>
+                </div>
+                <div class="center" id="border-bottom"></div>
             </div>
-
+            <br>
+            <br>
+            <div class="row">
+                <div class="center">
+                    <div class="list-sect">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <footer class="center"><a href="unit tests/index.html">Click here to check out unit testing.</a></footer>
+            </div>
+            <br>
         </div>
-        <footer><a href="registration-tests/index.html">Check out Unit Testing</a></footer>
-
     </div>
-    <script src="registration-tests/registration_factory.js"></script>
-    <script src="registration_number.js"></script>
+    
+    <script src="unit tests/factory.js"></script>
+    <script src="dom.js"></script>
 </body>
 </html>
