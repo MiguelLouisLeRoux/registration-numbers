@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="grid/simple-grid.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script type="text/x-template" class="userTemplate">
+        {{#each registration}}
+            {{registration-number}}
+        {{/each}}
+    </script>
+
     <title>Registration Numbers</title>
 </head>
 <body>
@@ -15,51 +22,112 @@
     <br>
     <div class="container">
         <div class="row">
-            <div class="center" id="format">Acceptable registration number formats are:<br>CA-123-456<br>CA 123 456<br>CA 123456</div>   
-        </div>
-       
-        <div class="row">
-            <div class="center">
-                <label class="error-message"></label><br>
-                <input class="input" type="text" placeholder=" Enter here">
-                <button class="addBtn" id="theAdd">Add</button>
-            </div>
-            <br>
-            <br>
-            <div class="row">
-                <div class="center" id="border-top"></div>
-                <div class="center">
-                    <label class="ca"><input class="radioInput" name="town" type="radio" value="capetown">Cape Town</label>
-                    <label class="ca"><input class="radioInput" name="town" type="radio" value="stellenbosch"> Stellenbosch</label>
-                    <label class="ca"><input class="radioInput" name="town" type="radio" value="paarl"> Paarl</label>
-                    <label class="ca"><input class="radioInput" name="town" type="radio" value="bellville"> Bellville</label>
-                    <label class="ca"><input class="radioInput" name="town" type="radio" value="all"> All</label>
+            <div class="col-6" id="col1">
+                <div class="row">
+                    <div class="center" id="widget1Title">
+                        <span class="theTitle">Original Widget</span>
+                    </div>
                 </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="butt">
+                <div class="row">
+                    <div class="center" id="format">Acceptable registration number formats are:<br>CA-123-456<br>CA 123 456<br>CA 123456</div>   
+                </div>
+            
+                <div class="row">
                     <div class="center">
-                        <button class="add" id="display">Display</button>
-                        <span class="empty"></span>
-                        <button class="add" id="clear">Clear</button>
+                        <label class="error-message"></label><br>
+                        <input class="input" type="text" placeholder=" Enter here">
+                        <button class="addBtn" id="theAdd">Add</button>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="center" id="border-top"></div>
+                        <div class="center">
+                            <label class="ca"><input class="radioInput" name="town" type="radio" value="capetown">Cape Town</label>
+                            <label class="ca"><input class="radioInput" name="town" type="radio" value="stellenbosch"> Stellenbosch</label>
+                            <label class="ca"><input class="radioInput" name="town" type="radio" value="paarl"> Paarl</label>
+                            <label class="ca"><input class="radioInput" name="town" type="radio" value="bellville"> Bellville</label>
+                            <label class="ca"><input class="radioInput" name="town" type="radio" value="all"> All</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="butt">
+                            <div class="center">
+                                <button class="add" id="display">Display</button>
+                                <span class="empty"></span>
+                                <button class="add" id="clear">Clear</button>
+                            </div>
+                        </div>
+                        <div class="center" id="border-bottom"></div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="center">
+                            <div class="list-sect">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="col-6" id="col2">
+                <div class="row">
+                    <div class="center" id="widget2Title">
+                        <span class="theTitle">Widget Using Templates</span>
                     </div>
                 </div>
-                <div class="center" id="border-bottom"></div>
-            </div>
-            <br>
-            <br>
-            <div class="row">
-                <div class="center">
-                    <div class="list-sect">
+                <div class="row">
+                    <div class="center" id="tempFormat">Acceptable registration number formats are:<br>CA-123-456<br>CA 123 456<br>CA 123456</div>   
+                </div>
+            
+                <div class="row">
+                    <div class="center">
+                        <label class="temperror-message"></label><br>
+                        <input class="tempinput" type="text" placeholder=" Enter here">
+                        <button class="tempaddBtn" id="temptheAdd">Add</button>
                     </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="center" id="tempborder-top"></div>
+                        <div class="center">
+                            <label class="ca"><input class="radioInput" name="temptown" type="radio" value="capetown">Cape Town</label>
+                            <label class="ca"><input class="radioInput" name="temptown" type="radio" value="stellenbosch"> Stellenbosch</label>
+                            <label class="ca"><input class="radioInput" name="temptown" type="radio" value="paarl"> Paarl</label>
+                            <label class="ca"><input class="radioInput" name="temptown" type="radio" value="bellville"> Bellville</label>
+                            <label class="ca"><input class="radioInput" name="temptown" type="radio" value="all"> All</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="butt">
+                            <div class="center">
+                                <button class="add" id="tempdisplay">Display</button>
+                                <span class="empty"></span>
+                                <button class="add" id="tempclear">Clear</button>
+                            </div>
+                        </div>
+                        <div class="center" id="tempborder-bottom"></div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="center">
+                            <div class="templist-sect">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
                 </div>
             </div>
-            <br>
         </div>
     </div>
     
     <script src="unit-tests/factory.js"></script>
     <script src="dom.js"></script>
+    <script src="template-dom.js"></script>
 </body>
 </html>

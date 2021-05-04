@@ -112,7 +112,17 @@ function regFactFunc() {
         error = "";
         arr = [];
         obj = {};
-        localStorage.clear();
+        localStorage.removeItem("theArr");
+        localStorage.removeItem("theObj");
+    }
+
+    function tempclear() {
+        regNum = "";
+        error = "";
+        arr = [];
+        obj = {};
+        localStorage.removeItem("thetempArr");
+        localStorage.removeItem("thetempObj");
     }
 
     return { getRegNum,
@@ -121,6 +131,7 @@ function regFactFunc() {
              values,
              noRadioBut,
              localReset,
-             clear
+             clear,
+             tempclear
     }
 }

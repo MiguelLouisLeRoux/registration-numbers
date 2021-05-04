@@ -110,6 +110,7 @@ p {
 
 .container {
   width: 90%;
+  /* width: 95%; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -121,7 +122,7 @@ p {
 
 .row [class^="col"] {
   float: left;
-  margin: 0.5rem 2%;
+  margin: 0.5rem 1%;
   min-height: 0.125rem;
 }
 
@@ -137,7 +138,8 @@ p {
 .col-10,
 .col-11,
 .col-12 {
-  width: 96%;
+  /* width: 96%; */
+  width: 100%;
 }
 
 .col-1-sm {
@@ -198,13 +200,47 @@ p {
   display: none;
 }
 
+#col1 {
+  
+  background-color: cadetblue;
+  border: solid;
+  border-radius: 1rem;
+}
+
+#col2 {
+  
+  background-color: coral;
+  border: solid;
+  border-radius: 1rem;
+}
+
+.theTitle {
+  font-weight: bolder;
+  font-size: 2rem;
+}
+
+#widget1Title {
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+#widget2Title {
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
 #format {
   color: whitesmoke;
   opacity: 0.6;
 }
 
+#tempFormat {
+  color: whitesmoke;
+  opacity: 0.6;
+}
+
 .ca {
-  margin-right: 2%;
+  margin-right: 1%;
   cursor: pointer;
 }
 
@@ -215,7 +251,21 @@ p {
   width: 53%;
 }
 
+#tempborder-top {
+  align-items: center;
+  margin-bottom: 3%;
+  border-bottom: solid 0.1rem lightblue;
+  width: 53%;
+}
+
 #border-bottom {
+  align-items: center;
+  margin-top: 3%;
+  border-bottom: solid 0.1rem lightblue;
+  width: 53%;
+}
+
+#tempborder-bottom {
   align-items: center;
   margin-top: 3%;
   border-bottom: solid 0.1rem lightblue;
@@ -265,6 +315,23 @@ p {
   transition: 250ms;
 }
 
+.tempaddBtn {
+  padding: 0.1rem;
+  width: 3rem;
+  text-decoration: none;
+  border-radius: 0.3rem;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.tempaddBtn:hover {
+  background-color: darkcyan;
+  color: whitesmoke;
+  box-shadow: 0 0 0.1rem 0.1rem darkcyan;
+  transition: 250ms;
+}
+
 .empty {
   margin-left: 1.5%;
   margin-right: 1.5%;
@@ -282,14 +349,8 @@ p {
   background-color: goldenrod;
   box-shadow: 0 0 0.3rem 0.3rem rgba(0,0,0,0.2);
   color: black;
-  /* animation-name: slide;
-  animation-duration: 1000ms; */
 }
 
-/* @keyframes slide{
-  from{transform: translateX(right)}
-  to{transform: translateX(left)}
-} */
 
 @media only screen and (min-width: 33.75em) {  /* 540px */
   .container {

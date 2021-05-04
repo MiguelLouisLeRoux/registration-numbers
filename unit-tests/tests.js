@@ -28,7 +28,7 @@ describe ("Registration Numbers", function(){
         })
     })
 
-    describe ("Should be able to stored and filter registration numbers", function(){
+    describe ("Should be able to store and filter registration numbers", function(){
         it('Should be able return a list of all registration numbers added', function(){
 
             var regTests = regFactFunc();
