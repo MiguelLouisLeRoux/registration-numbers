@@ -27,12 +27,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if (tempregFact.values().switching === true) {
 
-            // var newDiv = document.createElement("div");
-            // var newText = document.createTextNode(tempregFact.values().theRegNum);
-            // newDiv.appendChild(newText);
-            // newDiv.classList.add("number-plate");
-            // temptheList.appendChild(newDiv);
-
             var templateSource = document.querySelector(".userTemplate").innerHTML;
             var userTemplate = Handlebars.compile(templateSource);
 
@@ -40,12 +34,9 @@ document.addEventListener('DOMContentLoaded', function(){
                 registration: tempregFact.values().theArr
             };
 
-            // console.log(localStorage["thetempArr"]);
-
             userDataHTML = userTemplate(userData);
-            
             temptheList.innerHTML = userDataHTML;
-            // temptheList.classList.add("number-plate");
+            
 
             temperrormess.classList.remove("warn");
             temperrormess.classList.add("added");
@@ -89,11 +80,21 @@ document.addEventListener('DOMContentLoaded', function(){
                 for (var i = 0; i < tempregFact.filtering(tempradio.value).length; i++) {
                     var itt1 = tempregFact.filtering(tempradio.value)[i];
                 
-                    var newDiv = document.createElement("div");
-                    var newText = document.createTextNode(itt1);
-                    newDiv.appendChild(newText);
-                    newDiv.classList.add("number-plate");
-                    temptheList.appendChild(newDiv);
+                    // var newDiv = document.createElement("div");
+                    // var newText = document.createTextNode(itt1);
+                    // newDiv.appendChild(newText);
+                    // newDiv.classList.add("number-plate");
+                    // temptheList.appendChild(newDiv);
+
+                    var templateSource = document.querySelector(".userTemplate").innerHTML;
+                    var userTemplate = Handlebars.compile(templateSource);
+
+                    var userData = { 
+                        registration: itt1
+                    };
+
+                    userDataHTML = userTemplate(userData);
+                    temptheList.innerHTML = userDataHTML;
 
                     
                 }
