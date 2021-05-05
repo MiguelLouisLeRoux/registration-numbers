@@ -27,11 +27,25 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if (tempregFact.values().switching === true) {
 
-            var newDiv = document.createElement("div");
-            var newText = document.createTextNode(tempregFact.values().theRegNum);
-            newDiv.appendChild(newText);
-            newDiv.classList.add("number-plate");
-            temptheList.appendChild(newDiv);
+            // var newDiv = document.createElement("div");
+            // var newText = document.createTextNode(tempregFact.values().theRegNum);
+            // newDiv.appendChild(newText);
+            // newDiv.classList.add("number-plate");
+            // temptheList.appendChild(newDiv);
+
+            var templateSource = document.querySelector(".userTemplate").innerHTML;
+            var userTemplate = Handlebars.compile(templateSource);
+
+            var userData = { 
+                registration: tempregFact.values().theArr
+            };
+
+            // console.log(localStorage["thetempArr"]);
+
+            userDataHTML = userTemplate(userData);
+            
+            temptheList.innerHTML = userDataHTML;
+            // temptheList.classList.add("number-plate");
 
             temperrormess.classList.remove("warn");
             temperrormess.classList.add("added");
@@ -133,8 +147,6 @@ document.addEventListener('DOMContentLoaded', function(){
     tempclearBtn.addEventListener('click', tempclearReg);
 
     if (localStorage["thetempArr"] && localStorage["thetempobj"]) {
-
-        var tempradio = document.querySelector("input[name='temptown']:checked");
 
         thetempObj = JSON.parse(localStorage["thetempobj"]);
         thetempArr = JSON.parse(localStorage["thetempArr"]);
