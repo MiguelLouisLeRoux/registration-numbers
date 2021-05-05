@@ -109,8 +109,8 @@ p {
 /* ==== GRID SYSTEM ==== */
 
 .container {
-  width: 90%;
-  /* width: 95%; */
+  /* width: 90%; */
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -122,7 +122,8 @@ p {
 
 .row [class^="col"] {
   float: left;
-  margin: 0.5rem 1%;
+  /* margin: 0.5rem 1%; */
+  margin: 0.5rem;
   min-height: 0.125rem;
 }
 
@@ -242,6 +243,7 @@ p {
 .ca {
   margin-right: 1%;
   cursor: pointer;
+  font-weight: bolder;
 }
 
 #border-top {
@@ -297,6 +299,24 @@ p {
 }
 
 .add:hover {
+  background-color: coral;
+  color: whitesmoke;
+  box-shadow: 0 0 0.1rem 0.1rem coral;
+  transition: 250ms;
+}
+
+.tempadd {
+  padding: 0.3rem;
+  width: 4.5rem;
+  height: 1.8rem;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.tempadd:hover {
   background-color: darkcyan;
   color: whitesmoke;
   box-shadow: 0 0 0.1rem 0.1rem darkcyan;
@@ -314,9 +334,9 @@ p {
 }
 
 .addBtn:hover {
-  background-color: darkcyan;
+  background-color: coral;
   color: whitesmoke;
-  box-shadow: 0 0 0.1rem 0.1rem darkcyan;
+  box-shadow: 0 0 0.1rem 0.1rem coral;
   transition: 250ms;
 }
 

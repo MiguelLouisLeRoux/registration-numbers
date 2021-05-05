@@ -10,6 +10,10 @@ let temperrormess = document.querySelector(".temperror-message");
 
 document.addEventListener('DOMContentLoaded', function(){
 
+    //Template References
+    var templateSource = document.querySelector(".userTemplate").innerHTML;
+    var userTemplate = Handlebars.compile(templateSource);
+
 
     var tempregFact = regFactFunc();
 
@@ -26,9 +30,6 @@ document.addEventListener('DOMContentLoaded', function(){
         
 
         if (tempregFact.values().switching === true) {
-
-            var templateSource = document.querySelector(".userTemplate").innerHTML;
-            var userTemplate = Handlebars.compile(templateSource);
 
             var userData = { 
                 registration: tempregFact.values().theArr
@@ -76,28 +77,14 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
 
                 tempregFact.filtering(tempradio.value);
-                
-                for (var i = 0; i < tempregFact.filtering(tempradio.value).length; i++) {
-                    var itt1 = tempregFact.filtering(tempradio.value)[i];
-                
-                    // var newDiv = document.createElement("div");
-                    // var newText = document.createTextNode(itt1);
-                    // newDiv.appendChild(newText);
-                    // newDiv.classList.add("number-plate");
-                    // temptheList.appendChild(newDiv);
 
-                    var templateSource = document.querySelector(".userTemplate").innerHTML;
-                    var userTemplate = Handlebars.compile(templateSource);
+                var userData = { 
+                    registration: tempregFact.filtering(tempradio.value)
+                };
 
-                    var userData = { 
-                        registration: itt1
-                    };
-
-                    userDataHTML = userTemplate(userData);
-                    temptheList.innerHTML = userDataHTML;
-
-                    
-                }
+                userDataHTML = userTemplate(userData);
+                temptheList.innerHTML = userDataHTML;
+               
             } else if (tempregFact.filtering(tempradio.value).length == 0) {
                 while (temptheList.hasChildNodes()) {  
                     temptheList.removeChild(temptheList.firstChild);
@@ -153,16 +140,12 @@ document.addEventListener('DOMContentLoaded', function(){
         thetempArr = JSON.parse(localStorage["thetempArr"]);
         tempregFact.localReset(thetempArr, thetempObj);
 
-        
-        for (var j = 0; j < thetempArr.length; j++) {
-            var itt1 = thetempArr[j];
+        var userData = { 
+            registration: thetempArr
+        };
 
-            var newDiv = document.createElement("div");
-            var newText = document.createTextNode(itt1);
-            newDiv.appendChild(newText);
-            newDiv.classList.add("number-plate");
-            temptheList.appendChild(newDiv);
-        }
+        userDataHTML = userTemplate(userData);
+        temptheList.innerHTML = userDataHTML;
         
     }
 })
